@@ -1,4 +1,9 @@
+import { useLocation } from "react-router-dom";
+
 export default function DashboardHeader() {
+  const location = useLocation();
+  const isAdmin = location.pathname.startsWith('/admin');
+
   return (
     <header className="dash-header">
       <div className="header-search">
@@ -6,7 +11,7 @@ export default function DashboardHeader() {
         <input 
           type="text" 
           className="search-input" 
-          placeholder="Search patients or diagnostics..." 
+          placeholder={isAdmin ? "Search systems, logs, users..." : "Search patients or diagnostics..."} 
         />
       </div>
 
@@ -18,11 +23,11 @@ export default function DashboardHeader() {
 
         <div className="user-profile">
           <div className="user-info">
-            <span className="user-name">Dr. Aris</span>
-            <span className="user-role">Chief Neurologist</span>
+            <span className="user-name">{isAdmin ? "Dr. Aris Thorne" : "Dr. Aris"}</span>
+            <span className="user-role">{isAdmin ? "SYSTEM ADMINISTRATOR" : "Chief Neurologist"}</span>
           </div>
           <img 
-            src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=100&h=100" 
+            src={isAdmin ? "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=100&h=100" : "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=100&h=100"} 
             alt="User Avatar" 
             className="user-avatar"
           />

@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence, motion } from "framer-motion";
 
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
@@ -13,75 +14,105 @@ import History from "./pages/History";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import AdminPanel from "./pages/AdminPanel";
+import Settings from "./pages/Settings";
 
-function App() {
+const PageTransition = ({ children }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 10 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: -10 }}
+    transition={{ duration: 0.3, ease: "easeOut" }}
+  >
+    {children}
+  </motion.div>
+);
+
+function AnimatedRoutes() {
+  const location = useLocation();
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/register" element={<Auth />} />
-        <Route path="/login" element={<Auth />} />
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<PageTransition><Home /></PageTransition>} />
+        <Route path="/register" element={<PageTransition><Auth /></PageTransition>} />
+        <Route path="/login" element={<PageTransition><Auth /></PageTransition>} />
 
         <Route
           path="/dashboard"
           element={
             <ProtectedRoute>
-              <Dashboard />
+              <PageTransition><Dashboard /></PageTransition>
             </ProtectedRoute>
           }
         />
-        <Route path="/predict" element={<Predict />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/predict" element={<PageTransition><Predict /></PageTransition>} />
+        <Route path="/about" element={<PageTransition><About /></PageTransition>} />
         <Route
           path="/admin"
           element={
             <ProtectedRoute>
-              <AdminPanel />
+              <PageTransition><AdminPanel /></PageTransition>
             </ProtectedRoute>
           }
         />
-<Route
-  path="/predict/diabetes"
-  element={
-    <ProtectedRoute>
-      <DiabetesPredict />
-    </ProtectedRoute>
-  }
-/>
-<Route
-  path="/predict/heart"
-  element={
-    <ProtectedRoute>
-      <HeartPredict />
-    </ProtectedRoute>
-  }
-/>
+        <Route
+          path="/settings"
+          element={
+            <ProtectedRoute>
+              <PageTransition><Settings /></PageTransition>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/predict/diabetes"
+          element={
+            <ProtectedRoute>
+              <PageTransition><DiabetesPredict /></PageTransition>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/predict/heart"
+          element={
+            <ProtectedRoute>
+              <PageTransition><HeartPredict /></PageTransition>
+            </ProtectedRoute>
+          }
+        />
 
-<Route
-  path="/predict/liver"
-  element={
-    <ProtectedRoute>
-      <LiverPredict />
-    </ProtectedRoute>
-  }
-/>
-<Route
-  path="/prediction-result"
-  element={
-    <ProtectedRoute>
-      <PredictionResult />
-    </ProtectedRoute>
-  }
-/>
-<Route
-  path="/history"
-  element={
-    <ProtectedRoute>
-      <History />
-    </ProtectedRoute>
-  }
-/>
+        <Route
+          path="/predict/liver"
+          element={
+            <ProtectedRoute>
+              <PageTransition><LiverPredict /></PageTransition>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/prediction-result"
+          element={
+            <ProtectedRoute>
+              <PageTransition><PredictionResult /></PageTransition>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/history"
+          element={
+            <ProtectedRoute>
+              <PageTransition><History /></PageTransition>
+            </ProtectedRoute>
+          }
+        />
       </Routes>
+    </AnimatePresence>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <AnimatedRoutes />
     </BrowserRouter>
   );
 }

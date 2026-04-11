@@ -28,18 +28,18 @@ export default function Dashboard() {
       <PriorityScreenings />
 
       {/* Floating Action Button (Teal Plus) */}
-      <button 
-        className="btn btn-primary" 
-        style={{ 
-          position: 'fixed', 
-          bottom: '2rem', 
-          right: '2rem', 
-          width: '56px', 
-          height: '56px', 
-          borderRadius: '50%', 
-          padding: '0', 
-          display: 'flex', 
-          alignItems: 'center', 
+      <button
+        className="btn btn-primary"
+        style={{
+          position: 'fixed',
+          bottom: '2rem',
+          right: '2rem',
+          width: '56px',
+          height: '56px',
+          borderRadius: '50%',
+          padding: '0',
+          display: 'flex',
+          alignItems: 'center',
           justifyContent: 'center',
           boxShadow: '0 10px 25px var(--primary-glow)',
           zIndex: 1000

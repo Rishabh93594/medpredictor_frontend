@@ -63,14 +63,20 @@ export default function UserManagement() {
                 </div>
               </td>
               <td>
-                <span className="badge-clinical" style={{ 
-                  background: 'rgba(255, 255, 255, 0.05)', 
-                  color: 'var(--text-main)',
-                  border: '1px solid var(--border)',
-                  fontSize: '0.65rem'
-                }}>
-                  {user.role}
-                </span>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', gap: '0.4rem' }}>
+                  {user.role.split(' ').map((word, wIdx) => (
+                    <span key={wIdx} className="badge-clinical" style={{ 
+                      background: 'rgba(255, 255, 255, 0.05)', 
+                      color: 'var(--text-main)',
+                      border: '1px solid var(--border)',
+                      fontSize: '0.65rem',
+                      padding: '0.3rem 0.6rem',
+                      borderRadius: '6px'
+                    }}>
+                      {word}
+                    </span>
+                  ))}
+                </div>
               </td>
               <td>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.85rem' }}>

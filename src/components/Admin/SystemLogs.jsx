@@ -75,7 +75,18 @@ export default function SystemLogs() {
         ))}
       </div>
 
-      <button className="btn btn-outline" style={{ marginTop: '2.5rem', borderStyle: 'dashed', fontSize: '0.7rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+      <button className="btn" style={{ 
+        marginTop: '2.5rem', 
+        background: 'rgba(255, 255, 255, 0.02)', 
+        border: '1px solid var(--border)', 
+        color: 'var(--text-muted)', 
+        fontSize: '0.7rem', 
+        textTransform: 'uppercase', 
+        letterSpacing: '0.1em',
+        width: '100%',
+        justifyContent: 'center',
+        padding: '1rem'
+      }}>
         View Full System History
       </button>
     </div>

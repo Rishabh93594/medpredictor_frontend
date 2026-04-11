@@ -16,12 +16,16 @@ export default function AccuracyTrends() {
               <stop offset="0%" stopColor="var(--primary)" stopOpacity="0.3" />
               <stop offset="100%" stopColor="var(--primary)" stopOpacity="0" />
             </linearGradient>
+            <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+              <feGaussianBlur stdDeviation="4" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
           </defs>
           
-          {/* Grid lines */}
-          <line x1="0" y1="50" x2="800" y2="50" stroke="var(--border)" strokeOpacity="0.5" strokeDasharray="5,5" />
-          <line x1="0" y1="100" x2="800" y2="100" stroke="var(--border)" strokeOpacity="0.5" strokeDasharray="5,5" />
-          <line x1="0" y1="150" x2="800" y2="150" stroke="var(--border)" strokeOpacity="0.5" strokeDasharray="5,5" />
+          {/* Soft Grid lines */}
+          <line x1="0" y1="50" x2="800" y2="50" stroke="var(--border)" strokeOpacity="0.3" strokeDasharray="2,4" />
+          <line x1="0" y1="100" x2="800" y2="100" stroke="var(--border)" strokeOpacity="0.3" strokeDasharray="2,4" />
+          <line x1="0" y1="150" x2="800" y2="150" stroke="var(--border)" strokeOpacity="0.3" strokeDasharray="2,4" />
 
           {/* Wave path */}
           <path 
@@ -34,12 +38,13 @@ export default function AccuracyTrends() {
             stroke="var(--primary)" 
             strokeWidth="3" 
             strokeLinecap="round"
+            filter="url(#glow)"
           />
 
           {/* Data points */}
-          <circle cx="200" cy="110" r="4" fill="var(--bg-deep)" stroke="var(--primary)" strokeWidth="2" />
-          <circle cx="350" cy="140" r="4" fill="var(--bg-deep)" stroke="var(--primary)" strokeWidth="2" />
-          <circle cx="500" cy="80" r="4" fill="var(--bg-deep)" stroke="var(--primary)" strokeWidth="2" />
+          <circle cx="200" cy="110" r="5" fill="var(--bg-deep)" stroke="var(--primary)" strokeWidth="2.5" />
+          <circle cx="350" cy="140" r="5" fill="var(--bg-deep)" stroke="var(--primary)" strokeWidth="2.5" />
+          <circle cx="500" cy="80" r="5" fill="var(--bg-deep)" stroke="var(--primary)" strokeWidth="2.5" />
         </svg>
 
         <div className="graph-x-axis" style={{ display: 'flex', justifyContent: 'space-between', marginTop: '1rem', padding: '0 0.5rem' }}>
