@@ -938,6 +938,11 @@ h1, h2, h3, h4 {
   transition: var(--transition);
 }
 
+.diag-input option {
+  background-color: var(--bg-deep);
+  color: var(--text-main);
+}
+
 .diag-input:focus {
   outline: none;
   border-color: var(--primary);

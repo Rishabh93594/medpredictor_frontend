@@ -6,7 +6,7 @@ export default function DiagnosticCapabilities() {
       icon: (
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
       ),
-      link: "/diabetes-predict"
+      link: "/predict/diabetes"
     },
     {
       title: "Heart Disease",
@@ -14,15 +14,15 @@ export default function DiagnosticCapabilities() {
       icon: (
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
       ),
-      link: "/heart-predict"
+      link: "/predict/heart"
     },
-    {
+    { 
       title: "Liver Disease",
       description: "Assess hepatic health indicators through predictive biomarker analysis for early diagnostic detection.",
       icon: (
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.051.544c-.313.313-.458.743-.393 1.17l.555 3.655A2 2 0 007.13 22h9.739a2 2 0 001.97-1.416l.555-3.655a2 2 0 00-.393-1.17zM9 9a3 3 0 116 0 3 3 0 01-6 0z"></path></svg>
       ),
-      link: "/liver-predict"
+      link: "/predict/liver"
     }
   ];
 
