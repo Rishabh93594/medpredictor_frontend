@@ -15,7 +15,7 @@ export default function LiverPredict() {
   const fetchHistory = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/predict/history", {
+      const res = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/predict/history`, {
         headers: { authorization: token },
       });
       setRecentHistory(res.data.filter(p => p.diseaseType === "liver"));
@@ -33,7 +33,7 @@ export default function LiverPredict() {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.post(
-        "http://localhost:5000/api/predict",
+        `${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/predict`,
         {
           diseaseType: "liver",
           inputData: numericData,

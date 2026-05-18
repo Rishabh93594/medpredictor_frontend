@@ -38,7 +38,7 @@ export default function ActivityFeed() {
     const fetchRecent = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:5000/api/predict/history?limit=4", {
+        const res = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/predict/history?limit=4`, {
           headers: { authorization: token }
         });
         setActivities(res.data.map(getFormatData));

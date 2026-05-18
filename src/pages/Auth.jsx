@@ -34,7 +34,7 @@ export default function Auth() {
         ? { email: formData.email, password: formData.password }
         : formData;
       
-      const res = await axios.post(`http://localhost:5000${endpoint}`, payload);
+      const res = await axios.post(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/${endpoint}`, payload);
       
       if (isLogin) {
         localStorage.setItem("token", res.data.token);

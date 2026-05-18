@@ -14,7 +14,7 @@ export default function PriorityScreenings() {
     const fetchHighRisk = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:5000/api/predict/history?risk=high&limit=5", {
+        const res = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/predict/history?risk=high&limit=5`, {
           headers: { authorization: token }
         });
         

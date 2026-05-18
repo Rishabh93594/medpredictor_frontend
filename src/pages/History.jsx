@@ -24,7 +24,7 @@ export default function History() {
     setLoading(true);
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/predict/history", {
+      const res = await axios.get(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/predict/history`, {
         headers: { authorization: token },
       });
       setPredictions(res.data);
@@ -41,7 +41,7 @@ export default function History() {
     
     try {
       const token = localStorage.getItem("token");
-      await axios.delete("http://localhost:5000/api/predict/history", {
+      await axios.delete(`${import.meta.env.VITE_API_URL || 'http://localhost:5000'}/api/predict/history`, {
         headers: { authorization: token },
       });
       setPredictions([]);
